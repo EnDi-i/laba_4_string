@@ -29,6 +29,44 @@ namespace Variant11
 
             string result = sb.ToString();
             Console.WriteLine("Результат: " + result);
+
+            Console.WriteLine("Використаємо метод у якому масив кортежів для зберігання відповідей");
+
+            Correct(input);
+        }
+        static void Correct(string input)
+        {
+            var sb = new StringBuilder();
+
+            var mappings = new (char Letter, char Digit)[]
+            {
+                ('a', '1'),
+                ('b', '2'),
+                ('c', '3'),
+                ('d', '4'),
+                ('e', '5'),
+                ('f', '6'),
+                ('g', '7'),
+                ('h', '8'),
+                ('i', '9')
+            };
+
+            foreach (char ch in input)
+            {
+                char lowerCh = char.ToLower(ch);
+
+                foreach (var mapping in mappings)
+                {
+                    if (mapping.Letter == lowerCh)
+                    {
+                        sb.Append(mapping.Digit);
+                        break; 
+                    }
+                }
+            }
+
+            string result = sb.ToString();
+            Console.WriteLine("Результат: " + result);
         }
     }
 }
