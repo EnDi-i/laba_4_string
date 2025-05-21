@@ -13,6 +13,7 @@ namespace laba4
             string result;
             int choice;
             do
+
             {
                 Console.WriteLine("Який метод будете використовувати: ");
                 Console.WriteLine("1 - з використанням лише типу string, та додаванням чисел 1, 2, 3, ..., n у кінець за допомогою оператора += типу string");
@@ -25,32 +26,32 @@ namespace laba4
                 switch (choice)
                 {
                     case 1:
-                        //Stopwatch sw = Stopwatch.StartNew();
+                        Stopwatch sw = Stopwatch.StartNew();
                         result = String1(n);
-                        //sw.Stop();
-                        //Console.WriteLine($"Час виконання: {sw.ElapsedMilliseconds} мс");
-                        Console.WriteLine(result);
+                        sw.Stop();
+                        Console.WriteLine($"Час виконання: {sw.ElapsedMilliseconds} мс");
+                        //Console.WriteLine(result);
                         break;
                     case 2:
-                        //Stopwatch swу = Stopwatch.StartNew();
+                        Stopwatch swу = Stopwatch.StartNew();
                         result = String2(n);
-                        //swу.Stop();
-                        //Console.WriteLine($"Час виконання: {swу.ElapsedMilliseconds} мс");
-                        Console.WriteLine(result);
+                        swу.Stop();
+                        Console.WriteLine($"Час виконання: {swу.ElapsedMilliseconds} мс");
+                        //Console.WriteLine(result);
                         break;
                     case 3:
-                        //Stopwatch swe = Stopwatch.StartNew();
+                        Stopwatch swe = Stopwatch.StartNew();
                         result = StringBuilder3(n);
-                        //swe.Stop();
-                        //Console.WriteLine($"Час виконання: {swe.ElapsedMilliseconds} мс");
-                        Console.WriteLine(result);
+                        swe.Stop();
+                        Console.WriteLine($"Час виконання: {swe.ElapsedMilliseconds} мс");
+                        //Console.WriteLine(result);
                         break;
                     case 4:
-                        //Stopwatch swq = Stopwatch.StartNew();
+                        Stopwatch swq = Stopwatch.StartNew();
                         result = StringBuilder4(n);
-                        //swq.Stop();
-                        //Console.WriteLine($"Час виконання: {swq.ElapsedMilliseconds} мс");
-                        Console.WriteLine(result);
+                        swq.Stop();
+                        Console.WriteLine($"Час виконання: {swq.ElapsedMilliseconds} мс");
+                        //Console.WriteLine(result);
                         break;
                     case 5:
                         Console.WriteLine("Введіть нове число n: ");
@@ -66,41 +67,41 @@ namespace laba4
         static string String1(int n)
         {
             string result = "";
-            for(int i = 1; i <= n; i++)
+            for (int i = 1; i <= n; i++)
             {
-                result += i + (i == n ? "" : " ");
+                result += i + " ";
             }
-            return result;
+            return result.Trim(); 
         }
+
         static string String2(int n)
         {
             string result = "";
             for (int i = n; i >= 1; i--)
             {
-                result = i + (i == n ? "" : " ") + result;
+                result = i + " " + result;
             }
-            return result;
+            return result; 
         }
+
         static string StringBuilder3(int n)
         {
             var sb = new StringBuilder();
             for (int i = 1; i <= n; i++)
             {
-                sb.Append(i);
-                if (i != n) sb.Append(" ");
+                sb.Append(i).Append(" ");
             }
-            string result = sb.ToString();
-            return result;
+            return sb.ToString().Trim(); 
         }
+
         static string StringBuilder4(int n)
         {
             var sb = new StringBuilder();
             for (int i = n; i >= 1; i--)
             {
-                sb.Insert(0, i + (i == n ? "" : " "));
+                sb.Insert(0, i + " ");
             }
-            string result = sb.ToString();
-            return result;
+            return sb.ToString();
         }
     }
 }

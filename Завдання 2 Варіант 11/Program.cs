@@ -13,6 +13,25 @@ namespace Variant11
 
             foreach (char ch in input)
             {
+                
+                if ((ch >= 'A' && ch <= 'I') || (ch >= 'a' && ch <= 'i'))
+                {
+                    
+                    int digit = (char.ToUpper(ch) - 'A') + 1;
+                    sb.Append(digit);
+                }
+            }
+
+            string result = sb.ToString();
+            Console.WriteLine("Результат: " + result);
+
+        }
+        static void Switcik(string input)
+        {
+            var sb = new StringBuilder();
+
+            foreach (char ch in input)
+            {
                 switch (char.ToLower(ch))
                 {
                     case 'a': sb.Append('1'); break;
